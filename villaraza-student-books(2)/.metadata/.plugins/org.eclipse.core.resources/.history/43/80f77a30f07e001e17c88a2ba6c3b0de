@@ -1,0 +1,27 @@
+package com.studentbooks.uap.api.popquiz.service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.studentbooks.uap.api.popquiz.models.Student;
+import com.studentbooks.uap.api.popquiz.repository.StudentMapper;
+
+import java.util.List;
+
+@Service
+public class StudentService {
+
+    @Autowired
+    private StudentMapper studentMapper;
+
+    public void addStudent(Student student) {
+        studentMapper.insertStudent(student);
+    }
+
+    public Student getStudentById(Long id) {
+        return studentMapper.selectStudentById(id);
+    }
+
+    public List<Student> getAllStudents() {
+        return studentMapper.selectAllStudents();
+    }
+}
